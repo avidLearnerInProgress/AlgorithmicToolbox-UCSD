@@ -16,13 +16,6 @@ double euclideanDistance(Point a, Point b)  {
     return sqrt(X*X + Y*Y);
 }
 
-// comparison first done by y coordinate, then by x coordinate
-bool _less(Point a, Point b) {
-    if(a.y < b.y) return true;
-    if(a.y > b.y) return false;
-    return a.x < b.x;
-}
-
 void merge(Point* a, Point* aux, int lo, int mid, int hi)   {
     int i, j, k;
     for(k = lo; k <= hi; k++)
@@ -32,7 +25,6 @@ void merge(Point* a, Point* aux, int lo, int mid, int hi)   {
     while(i <= mid && j <= hi)
         a[k++] = _less(aux[i], aux[j]) ? aux[i++] : aux[j++];
 
-    // Copy the rest of the left side of the array into the target array
     while(i <= mid)
         a[k++] = aux[i++];
 }
@@ -79,9 +71,9 @@ int main()  {
     int N, i;
     Point *points, *pointsByY, *aux;
 
-    scanf("%d", &N);    //Enter the number of points in the plane
+    scanf("%d", &N);    
     points = new Point[N];
-    for(i=0; i<N; i++)  // Enter N points (x, y)
+    for(i=0; i<N; i++)  
         scanf("%lf %lf", &points[i].x, &points[i].y);
 
     if(N <= 1) return 0;
@@ -94,7 +86,6 @@ int main()  {
 
     bestDistance = numeric_limits<double>::infinity();
     closestPair(points, pointsByY, aux, 0, N-1);
-
     printf("%lf\n", bestDistance);
 
     return 0;

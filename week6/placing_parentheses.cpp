@@ -1,14 +1,3 @@
-/**
- *  placing_parentheses.cpp
- *
- *  This file implements a dynamic programming algorithm to find the maximum
- *  value of an arithmetic expression through manipulation of the order of
- *  operations. Given the expression on the command line, the maximum value
- *  is then printed to the console.
- *
- *  Author: Ryan Cormier <rydcormier@gmail.com>
- *  Date:   March 16, 2018
- **/
 #include <algorithm>
 #include <iostream>
 #include <cassert>
@@ -26,7 +15,6 @@ using Table = vector<vector<long long>>;
 struct Range {
     long long minimum;
     long long maximum;
-
     Range() : minimum(0), maximum(0) {}
 };
 
@@ -112,4 +100,3 @@ int main() {
     std::cin >> s;
     std::cout << get_maximum_value(s) << '\n';
 }
-

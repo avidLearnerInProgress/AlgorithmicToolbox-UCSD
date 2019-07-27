@@ -1,0 +1,1 @@
+# Solutions for the course - Algorithmic Toolbox
